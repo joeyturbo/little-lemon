@@ -1,0 +1,19 @@
+.footer .container {
+  grid-template-columns: repeat(4, auto);
+  color: #fff;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.footer .logo {
+  width: 6rem;
+  max-width: 6rem;
+}
+
+.footer a {
+  color: #fff;
+}
+
+.footer p {
+  font-weight: 300;
+}

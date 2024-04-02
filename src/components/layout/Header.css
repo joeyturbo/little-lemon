@@ -1,0 +1,40 @@
+
+.navbar {
+  grid-template-columns: auto auto auto;
+  min-height: 6rem;
+  align-items: center;
+}
+
+.navbar__logo {
+  grid-column: 1;
+  line-height: 0;
+
+}
+
+/* .navbar a {
+  color: var(--clr-primary-dark)
+} */
+
+.navbar__links {
+  grid-column: 2 / 4;
+  display: flex;
+  width: 100%;
+  justify-content: right;
+}
+
+.navbar__links li {
+  transition: background-color 1s;
+  padding: 2.2rem 1rem;
+  margin: 0 0;
+  font-weight:300;
+}
+
+.navbar__links li:hover {
+}
+
+.navbar__logo {
+  max-width: 15.625rem;
+  width: 90%;
+  height: 5rem;
+  
+}

@@ -1,5 +1,7 @@
 import './Header.css';
+import { Link } from 'react-router-dom';
 import logo from './assets/Logo.svg';
+import { pages } from '../../utilities/pages'
 
 function Header() {
   return (
@@ -11,6 +13,9 @@ function Header() {
           </a>
           {/* {nav items} */}
           <ul className="navbar__links"> 
+            {pages.map((link, index) => 
+              <li key={index}><Link to={link.url} className="text-dark fs-400">{link.name}</Link></li>
+            )}
           </ul>
         </nav>
       </header>
