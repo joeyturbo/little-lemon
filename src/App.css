@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+
+/* custom properties */
+:root {
+  /* colors */
+  --clr-primary-dark: #495E57;
+  --clr-primary-light: #F4CE14;
+
+  --clr-secondary-dark: #EE9972;
+  --clr-secondary-light: #FBDABB;
+
+  --clr-highlight-dark: #333333;
+  --clr-highlight-light: #EDEFEE;
+
+
+  /* font-sizes */
+  --fs-600: 2.5rem;
+  --fs-400: 1.125rem;
+  --fs-300: 1rem;
+
+  /* font families */
+  --ff-primary: "Markazi Text", serif;
+  --ff-secondary: "Karla", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
 }
 
-.App-header {
-  background-color: #282c34;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-300);
+  line-height: 1.5;
   min-height: 100vh;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+.flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: var(--gap, 1rem);
 }
 
-.App-link {
-  color: #61dafb;
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+  outline: 1px solid red;
 }
+
+/* colors */
+
+.bg-dark { background-color: var(--clr-primary-dark);}
+.bg-white { background-color: var(--clr-highlight-light)}
+
+.text-dark { color: var(--clr-primary-dark)}
+.text-accent { color: var(--clr-primary-light)}
+.text-white { color: var(--clr-highlight-light)}
+
+/* typography */
+.ff-serif { font-family: var(--ff-primary)}
+.ff-sans { font-family: var(--ff-secondary)}
+
+.uppercase { text-transform: uppercase;}
+
+.fs-600 { font-size: var(--fs-600); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+
