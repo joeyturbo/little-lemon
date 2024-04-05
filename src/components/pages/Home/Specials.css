@@ -1,0 +1,21 @@
+.specials {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.specials__header {
+  grid-column: 1 / 4;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.specials .button-primary {
+  border-color: var(--clr-primary-light)
+}
+
+.specials .button-primary:hover {
+  border-color: var(--clr-primary-dark)
+}

@@ -1,0 +1,27 @@
+.res {
+  border: 1px solid red;
+  justify-content: center;
+  grid-template-areas: 'header header header',
+                        'blank form blank'
+  ;
+  justify-items: center;
+}
+
+.res__header {
+  width: 100%;
+  border: 1px solid orange;
+  display:block;
+  background-color: var(--primary-color);
+}
+
+.res__form {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.res__form input {
+  margin-bottom: 1rem;
+}

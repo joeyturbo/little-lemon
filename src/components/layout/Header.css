@@ -1,19 +1,34 @@
 
 .navbar {
   grid-template-columns: auto auto auto;
-  min-height: 6rem;
   align-items: center;
 }
 
 .navbar__logo {
   grid-column: 1;
   line-height: 0;
+  justify-self: start;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
 }
 
-/* .navbar a {
-  color: var(--clr-primary-dark)
-} */
+.navbar__logo img {
+  align-self: center;
+}
+
+.navbar ul {
+  height: 100%;
+}
+
+.navbar__logo img {
+  min-width: 200px;
+}
+
+
 
 .navbar__links {
   grid-column: 2 / 4;
@@ -22,19 +37,102 @@
   justify-content: right;
 }
 
+.navbar__links a,
+.navbar__links a:hover,
+.navbar__links a:visited {
+  color: var(--clr-primary-dark);
+
+}
+
 .navbar__links li {
   transition: background-color 1s;
-  padding: 2.2rem 1rem;
+  padding: 0 0;
   margin: 0 0;
   font-weight:300;
 }
 
-.navbar__links li:hover {
-}
 
 .navbar__logo {
   max-width: 15.625rem;
   width: 90%;
   height: 5rem;
   
+}
+
+.navbar__hamburger {
+  grid-column: 2;
+  display: none;
+  cursor: pointer;
+  color: #495E57;
+  transition: background-color 0.5s;
+}
+
+.navbar__hamburger:hover {
+  background-color: #F4CE14;
+}
+
+.navbar__links {
+  grid-column: 3;
+  display: flex;
+  justify-content: right;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  list-style-type: none;
+  transition: left 0.3s;
+}
+
+.navbar__links.expanded {
+  left: 0;
+}
+
+.navbar__links li {
+  display: flex;
+}
+
+.navbar__links a {
+  display: flex;
+  align-items: center;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1.5rem;
+  text-transform: uppercase;
+  transition: background-color 0.5s;
+}
+
+.current-location, 
+.navbar__links a:hover, 
+.navbar__links a:focus {
+  background-color: #F4CE14;
+}
+
+@media only screen and (max-width: 992px) {
+  .nav-bar {
+    grid-template-columns: auto auto;
+  }
+
+  .navbar__hamburger {
+    width: 2.5rem;
+    justify-self: end;
+    display: inline-block;
+    background: none;
+    border: none;
+  }
+
+  .navbar__links {
+    position: absolute;
+    flex-direction: column;
+    width: 50%;
+    height: 100vh;
+    top: 0;
+    left: -50%;
+    background-color: #FFFFFF;
+    box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+  }
+
+  .navbar__links li {
+    flex-direction: column;
+  }
 }

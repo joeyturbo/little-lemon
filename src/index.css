@@ -14,7 +14,9 @@
 
 
   /* font-sizes */
+  --fs-800: 3.5rem;
   --fs-600: 2.5rem;
+  --fs-500: 2rem;
   --fs-400: 1.125rem;
   --fs-300: 1rem;
 
@@ -87,11 +89,28 @@ a:active {
   text-decoration: none;
 }
 
+/* button styles */
+.button-primary {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  background-color: #F4CE14;
+  color: #495E57;
+  font-weight: bold;
+  border: 0.1875rem solid #F4CE14;
+  transition: background, border, color 0.5s;
+}
+
+.button-primary:hover, 
+.button-primary:focus {
+  background-color: #495E57;
+  border-color: #495E57;
+  color: #FFFFFF;
+}
+
 .container {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 61.625rem;
-  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -126,7 +145,9 @@ a:active {
 
 .uppercase { text-transform: uppercase;}
 
+.fs-800 { font-size: var(--fs-800);}
 .fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
 .fs-400 { font-size: var(--fs-400); }
 .fs-300 { font-size: var(--fs-300); }
 

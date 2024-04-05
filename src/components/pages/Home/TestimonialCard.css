@@ -1,0 +1,32 @@
+.testimonial__card {
+  grid-column: auto;
+  grid-row: 2;
+  min-height: 22.75rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+}
+
+.testimonial__card-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+.testimonial__card-img {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+
+  
+}
+
+.icon {
+  color: var(--clr-primary-light);
+}

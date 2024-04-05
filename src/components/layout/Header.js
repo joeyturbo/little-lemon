@@ -1,27 +1,51 @@
 import './Header.css';
-import { Link } from 'react-router-dom';
+import {useState} from 'react'
+import { Link, useLocation } from 'react-router-dom';
 import logo from './assets/Logo.svg';
-import { pages } from '../../utilities/pages'
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import pages from '../../utilities/pages';
+
+const navLinks = Array.from(pages.values()).filter(page => page.anchorable);
+
 
 function Header() {
-  return (
-    <>
-      <header>
-        <nav className="navbar container grid"> 
-          <a href="/">
-            <img className="navbar__logo" src={logo} alt="logo"/>
-          </a>
-          {/* {nav items} */}
-          <ul className="navbar__links"> 
-            {pages.map((link, index) => 
-              <li key={index}><Link to={link.url} className="text-dark fs-400">{link.name}</Link></li>
-            )}
-          </ul>
-        </nav>
-      </header>
+  const { pathname } = useLocation();
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
 
-    </>
-  )
-}
+  return (
+    <header>
+      <nav className="container grid navbar">
+        <Link className="navbar__logo" to={pages.get('home').path}>
+          <img src={logo} alt="Little Lemon logo" />
+        </Link>
+        <button 
+          className="navbar__hamburger" 
+          type="button" 
+          onClick={() => setIsNavExpanded(!isNavExpanded)}
+        >
+          {isNavExpanded ?
+            <FontAwesomeIcon icon={faXmark} size="2x" /> : 
+            <FontAwesomeIcon icon={faBars} size="2x" />}
+        </button>
+        <ul 
+          className={isNavExpanded ? 'navbar__links expanded' : 'navbar__links'} 
+          onClick={() => setIsNavExpanded(!isNavExpanded)}
+        >
+          {navLinks.map((navLink, index) => 
+            <li key={index}>
+              <Link 
+                className={pathname === navLink.path ? 'current-location' : ''} 
+                to={navLink.path}
+              >
+                {navLink.name}
+              </Link>
+            </li>
+          )}
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
 export default Header;

@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import footerLogo from './assets/logo-white.png';
 import './Footer.css'
-import { pages } from '../../utilities/pages';
+import pages from '../../utilities/pages';
 
 const contacts = [
   { icon: faLocationDot, data: '254 Main St, Chicago, IL 60600', },
@@ -28,35 +28,56 @@ const socials = [
   { icon: faYoutube, name: 'youtube', },
 ];
 
+const navLinks = Array.from(pages.values()).filter(page => page.anchorable);
 
-function Footer() {
+
+const Footer = () => {
   return (
     <footer className="footer bg-dark text-white">
-        <div className="container grid">
-          <img src={footerLogo} className="logo" alt="logo"/>
-          <nav className="footer__nav">
-            <h4>Sitemap</h4>
-            {pages.map((link, index) =>
-              <p key={index} className="footer__nav-links"><Link to={link.url}>{link.name}</Link></p>
+      <div className="container grid">
+        <img 
+          className="logo" 
+          src={footerLogo} 
+          alt="Little Lemon" 
+        />
+        <nav className="footer__nav">
+          <h4 className="uppercase">Sitemap</h4>
+          <ul>
+            {navLinks.map((navLink, index) => 
+              <li key={index}>
+                <Link to={navLink.path} className="footer__nav-links">{navLink.name}</Link>
+              </li>
             )}
-          </nav>
-          <div className="footer__contact-info">
-            <h4>Contact Us</h4>
-            {contacts.map((item, index) => 
-              <p key={index}><FontAwesomeIcon icon={item.icon} size="xs"/> {item.data}</p>
-            )}
-          </div>
-          <div className="footer__socials">
-            <h4>Connect</h4>
-            {socials.map((item, index) => 
-              <span key={index}><FontAwesomeIcon icon={item.icon} size="xl" /></span>
+          </ul>
+        </nav>
+        <div className="footer__contact-info">
+          <h4 className="uppercase">Contact us</h4>
+          <address>
+          {contacts.map((contact, index) => 
+            <p key={index}>
+              <FontAwesomeIcon icon={contact.icon} /> {contact.data}
+            </p>
+          )}
+          </address>
+        </div>
+        <div className="footer__socials">
+          <h4 className="uppercase">Connect with us</h4>
+          <div className="footer__social-icons">
+            {socials.map((social, index) => 
+              <a 
+                key={index} 
+                href={`https://www.${social.name}.com`} 
+                target="_blank" 
+                rel="noreferrer" 
+              >
+                <FontAwesomeIcon icon={social.icon} size="lg" />   
+              </a>
             )}
           </div>
         </div>
-
-
+      </div>
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;

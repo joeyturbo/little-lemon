@@ -10,10 +10,23 @@
   max-width: 6rem;
 }
 
+.footer h4 {
+  margin-bottom: 1rem;
+}
+
 .footer a {
   color: #fff;
 }
 
 .footer p {
   font-weight: 300;
+}
+
+.footer__nav ul {
+  padding-left: 0;
+}
+
+.footer__social-icons {
+  display: flex;
+  gap: 1rem;
 }
