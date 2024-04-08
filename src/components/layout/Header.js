@@ -16,7 +16,7 @@ function Header() {
   return (
     <header>
       <nav className="container grid navbar">
-        <Link className="navbar__logo" to={pages.get('home').path}>
+        <Link className="navbar__logo" to={pages.get('bookings').path}>
           <img src={logo} alt="Little Lemon logo" />
         </Link>
         <button 

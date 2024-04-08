@@ -15,7 +15,6 @@
 }
 
 .res__form {
-  border: 1px solid blue;
   display: flex;
   flex-direction: column;
   justify-content: center;
